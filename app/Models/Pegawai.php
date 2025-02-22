@@ -30,4 +30,9 @@ class Pegawai extends Model
     {
         return $this->belongsTo(Jabatan::class);
     }
+
+    public function pelatihans()
+    {
+        return $this->hasMany(Pelatihan::class);
+    }
 }
