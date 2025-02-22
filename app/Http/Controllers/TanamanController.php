@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Tanaman;
 use App\Models\Lahan;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class TanamanController extends Controller
 {
@@ -90,5 +91,12 @@ class TanamanController extends Controller
     {
         $tanaman->delete();
         return redirect()->route('tanaman.index')->with('success', 'Tanaman berhasil dihapus.');
+    }
+
+    public function reportTanaman()
+    {
+        $tanamans = Tanaman::with('lahan')->get();
+        $pdf = PDF::loadView('tanaman.report', compact('tanamans'));
+        return $pdf->stream('laporan-tanaman.pdf');
     }
 }

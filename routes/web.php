@@ -42,19 +42,27 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::resource('bagian', BagianController::class)->middleware('auth');
+Route::get('reportBagian', [BagianController::class, 'reportBagian'])->name('reportBagian')->middleware('auth');
 
 Route::resource('jabatan', JabatanController::class)->middleware('auth');
+Route::get('reportJabatan', [JabatanController::class, 'reportJabatan'])->name('reportJabatan')->middleware('auth');
 
 Route::resource('pegawai', PegawaiController::class)->middleware('auth');
+Route::get('reportPegawai', [PegawaiController::class, 'reportPegawai'])->name('reportPegawai')->middleware('auth');
 
 Route::resource('pelatihan', PelatihanController::class)->middleware('auth');
+Route::get('reportPelatihan', [PelatihanController::class, 'reportPelatihan'])->name('reportPelatihan')->middleware('auth');
 
 Route::resource('lahan', LahanController::class)->middleware('auth');
+Route::get('reportLahan', [LahanController::class, 'reportLahan'])->name('reportLahan')->middleware('auth');
 
 Route::resource('tanaman', TanamanController::class)->middleware('auth');
+Route::get('reportTanaman', [TanamanController::class, 'reportTanaman'])->name('reportTanaman')->middleware('auth');
 
 Route::resource('pemeliharaan', PemeliharaanController::class)->middleware('auth');
+Route::get('reportPemeliharaan', [PemeliharaanController::class, 'reportPemeliharaan'])->name('reportPemeliharaan')->middleware('auth');
 
 Route::resource('panen', PanenController::class)->middleware('auth');
+Route::get('reportPanen', [PanenController::class, 'reportPanen'])->name('reportPanen')->middleware('auth');
 
 require __DIR__.'/auth.php';

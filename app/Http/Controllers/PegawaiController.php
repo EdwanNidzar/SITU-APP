@@ -7,6 +7,7 @@ use App\Models\Pegawai;
 use App\Models\Jabatan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class PegawaiController extends Controller
 {
@@ -127,5 +128,12 @@ class PegawaiController extends Controller
         $pegawai->delete();
         Storage::disk('public')->delete($pegawai->foto);
         return redirect()->route('pegawai.index')->with('success', 'Pegawai berhasil dihapus');
+    }
+
+    public function reportPegawai()
+    {
+        $pegawais = Pegawai::with('bagian','jabatan')->get();
+        $pdf = PDF::loadView('pegawai.report', compact('pegawais'));
+        return $pdf->stream('report_pegawai.pdf');
     }
 }

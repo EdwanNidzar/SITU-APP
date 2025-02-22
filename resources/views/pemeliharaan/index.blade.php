@@ -10,7 +10,8 @@
     <div class="mt-4 mb-4 flex justify-end space-x-2">
       <a href="{{ route('pemeliharaan.create') }}"
         class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">Tambah</a>
-      <a href="#" class="px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600" target="_blank">Export
+      <a href="{{ route('reportPemeliharaan') }}" class="px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600"
+        target="_blank">Export
         PDF</a>
     </div>
 

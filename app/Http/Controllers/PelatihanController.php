@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Pelatihan;
 use App\Models\Pegawai;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class PelatihanController extends Controller
 {
@@ -88,4 +89,12 @@ class PelatihanController extends Controller
         return redirect()->route('pelatihan.index')
             ->with('success', 'Pelatihan deleted successfully');
     }
+
+    public function reportPelatihan()
+    {
+        $pelatihans = Pelatihan::with('pegawai')->get();
+        $pdf = PDF::loadView('pelatihan.report', compact('pelatihans'));
+        return $pdf->stream('report_pelatihan.pdf');
+    }
+
 }

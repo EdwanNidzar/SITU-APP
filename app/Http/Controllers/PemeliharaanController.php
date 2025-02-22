@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Pemeliharaan;
 use App\Models\Tanaman;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class PemeliharaanController extends Controller
 {
@@ -90,5 +91,12 @@ class PemeliharaanController extends Controller
     {
         $pemeliharaan->delete();
         return redirect()->route('pemeliharaan.index')->with('success', 'Pemeliharaan berhasil dihapus.');
+    }
+
+    public function reportPemeliharaan()
+    {
+        $pemeliharaans = Pemeliharaan::with('tanaman')->orderBy('id', 'desc')->get();
+        $pdf = PDF::loadView('pemeliharaan.report', compact('pemeliharaans'));
+        return $pdf->stream('laporan-pemeliharaan.pdf');
     }
 }

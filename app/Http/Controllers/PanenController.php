@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Panen;
 use App\Models\Tanaman;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class PanenController extends Controller
 {
@@ -90,5 +91,12 @@ class PanenController extends Controller
     {
         $panen->delete();
         return redirect()->route('panen.index')->with('success', 'Panen berhasil dihapus.');
+    }
+
+    public function reportPanen()
+    {
+        $panens = Panen::with('tanaman')->orderBy('id', 'desc')->get();
+        $pdf = PDF::loadView('panen.report', compact('panens'));
+        return $pdf->stream('laporan-panen.pdf');
     }
 }

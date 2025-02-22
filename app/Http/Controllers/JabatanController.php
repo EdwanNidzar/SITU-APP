@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Jabatan;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class JabatanController extends Controller
 {
@@ -79,5 +80,12 @@ class JabatanController extends Controller
 
         return redirect()->route('jabatan.index')
             ->with('success', 'Jabatan deleted successfully');
+    }
+
+    public function reportJabatan()
+    {
+        $jabatans = Jabatan::all();
+        $pdf = PDF::loadView('jabatan.report', compact('jabatans'));
+        return $pdf->stream('report_jabatan.pdf');
     }
 }

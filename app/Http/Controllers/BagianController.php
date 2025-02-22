@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Bagian;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class BagianController extends Controller
 {
@@ -79,5 +80,12 @@ class BagianController extends Controller
 
         return redirect()->route('bagian.index')
             ->with('success', 'Bagian deleted successfully');
+    }
+
+    public function reportBagian()
+    {
+        $bagians = Bagian::all();
+        $pdf = PDF::loadView('bagian.report', compact('bagians'));
+        return $pdf->stream('report_bagian.pdf');
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Lahan;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class LahanController extends Controller
 {
@@ -83,5 +84,12 @@ class LahanController extends Controller
 
         return redirect()->route('lahan.index')
             ->with('success', 'Lahan deleted successfully');
+    }
+
+    public function reportLahan()
+    {
+        $lahans = Lahan::all();
+        $pdf = PDF::loadview('lahan.report', compact('lahans'));
+        return $pdf->stream('report_lahan.pdf');
     }
 }
