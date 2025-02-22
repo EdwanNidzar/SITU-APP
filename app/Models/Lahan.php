@@ -14,4 +14,9 @@ class Lahan extends Model
         'lokasi_lahan',
         'luas_lahan'
     ];
+
+    public function tanaman()
+    {
+        return $this->hasMany(Tanaman::class);
+    }
 }
