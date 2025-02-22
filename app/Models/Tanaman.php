@@ -21,4 +21,9 @@ class Tanaman extends Model
     {
         return $this->belongsTo(Lahan::class);
     }
+
+    public function pemeliharaans()
+    {
+        return $this->hasMany(Pemeliharaan::class, 'tanaman_id');
+    }
 }
