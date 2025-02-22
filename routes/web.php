@@ -7,6 +7,7 @@ use App\Http\Controllers\PelatihanController;
 use App\Http\Controllers\LahanController;
 use App\Http\Controllers\TanamanController;
 use App\Http\Controllers\PemeliharaanController;
+use App\Http\Controllers\PanenController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -53,5 +54,7 @@ Route::resource('lahan', LahanController::class)->middleware('auth');
 Route::resource('tanaman', TanamanController::class)->middleware('auth');
 
 Route::resource('pemeliharaan', PemeliharaanController::class)->middleware('auth');
+
+Route::resource('panen', PanenController::class)->middleware('auth');
 
 require __DIR__.'/auth.php';
