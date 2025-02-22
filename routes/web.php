@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\BagianController;
 use App\Http\Controllers\JabatanController;
 use App\Http\Controllers\UserController;
@@ -38,5 +39,7 @@ Route::middleware('auth')->group(function () {
 Route::resource('bagian', BagianController::class)->middleware('auth');
 
 Route::resource('jabatan', JabatanController::class)->middleware('auth');
+
+Route::resource('pegawai', PegawaiController::class)->middleware('auth');
 
 require __DIR__.'/auth.php';

@@ -10,4 +10,10 @@ class Bagian extends Model
     use HasFactory;
 
     protected $fillable = ['nama_bagian'];
+
+    public function pegawai()
+    {
+        return $this->hasMany(Pegawai::class);
+    }
+    
 }
