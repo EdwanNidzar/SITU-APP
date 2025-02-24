@@ -206,8 +206,8 @@
     <img src="img/sawit-landing.jpg" alt="Gambar" class="background-image">
 
     <div class="overlay">
-      <h1>PT Tasnida Agro Lestari</h1>
-      <p>Sistem Informasi Ketatausahaan</p>
+      <h1>APLIKASI MANAJEMEN PERKEBUNAN SAWIT</h1>
+      <p>PT TASNIDA ARGOLESTARI</p>
     </div>
   </div>
 
