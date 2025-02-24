@@ -41,6 +41,14 @@
             <x-input-error :messages="$errors->get('tanggal')" class="mt-2" />
           </div>
 
+          <!-- Biaya Pemeliharaan -->
+          <div class="mt-4">
+            <x-input-label for="biaya_pemeliharaan" :value="__('Biaya Pemeliharaan')" />
+            <x-text-input type="number" id="biaya_pemeliharaan" name="biaya_pemeliharaan" class="block w-full"
+              value="{{ old('biaya_pemeliharaan') }}" required />
+            <x-input-error :messages="$errors->get('biaya_pemeliharaan')" class="mt-2" />
+          </div>
+
           <!-- Submit Button -->
           <div class="mt-4">
             <x-primary-button class="float-right">

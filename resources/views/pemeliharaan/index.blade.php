@@ -23,6 +23,7 @@
               <th class="px-4 py-3">Nama Tanaman</th>
               <th class="px-4 py-3">Kegiatan</th>
               <th class="px-4 py-3">Tanggal</th>
+              <th class="px-4 py-3">Biaya Pemeliharaan</th>
               <th class="px-4 py-3 text-center">Aksi</th>
             </tr>
           </thead>
@@ -32,6 +33,7 @@
                 <td class="px-4 py-3 text-sm">{{ $pemeliharaan->tanaman->nama_tanaman }}</td>
                 <td class="px-4 py-3 text-sm">{{ $pemeliharaan->kegiatan }}</td>
                 <td class="px-4 py-3 text-sm">{{ $pemeliharaan->tanggal }}</td>
+                <td class="px-4 py-3 text-sm">Rp {{ number_format($pemeliharaan->biaya_pemeliharaan, 0, ',', '.') }}</td>
                 <td class="px-4 py-3 text-sm text-center">
                   <div class="flex justify-center space-x-2">
                     <a href="{{ route('pemeliharaan.edit', $pemeliharaan->id) }}"

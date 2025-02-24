@@ -15,6 +15,7 @@ class Pemeliharaan extends Model
         'tanaman_id',
         'kegiatan',
         'tanggal',
+        'biaya_pemeliharaan',
     ];
 
     public function tanaman()

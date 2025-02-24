@@ -15,6 +15,7 @@ return new class extends Migration {
             $table->foreignId('tanaman_id')->constrained('tanamen')->onDelete('cascade');
             $table->text('kegiatan');
             $table->date('tanggal');
+            $table->decimal('biaya_pemeliharaan', 10, 2);
             $table->timestamps();
         });
     }

@@ -36,12 +36,14 @@ class PemeliharaanController extends Controller
             'tanaman_id' => 'required|exists:tanamen,id',
             'kegiatan' => 'required|string|max:255',
             'tanggal' => 'required|date',
+            'biaya_pemeliharaan' => 'required|numeric',
         ]);
 
         Pemeliharaan::create([
             'tanaman_id' => $request->tanaman_id,
             'kegiatan' => $request->kegiatan,
             'tanggal' => $request->tanggal,
+            'biaya_pemeliharaan' => $request->biaya_pemeliharaan,
         ]);
 
         return redirect()->route('pemeliharaan.index')->with('success', 'Pemeliharaan berhasil ditambahkan.');
@@ -73,12 +75,14 @@ class PemeliharaanController extends Controller
             'tanaman_id' => 'required|exists:tanamen,id',
             'kegiatan' => 'required|string|max:255',
             'tanggal' => 'required|date',
+            'biaya_pemeliharaan' => 'required|numeric',
         ]);
 
         $pemeliharaan->update([
             'tanaman_id' => $request->tanaman_id,
             'kegiatan' => $request->kegiatan,
             'tanggal' => $request->tanggal,
+            'biaya_pemeliharaan' => $request->biaya_pemeliharaan,
         ]);
 
         return redirect()->route('pemeliharaan.index')->with('success', 'Pemeliharaan berhasil diperbarui.');

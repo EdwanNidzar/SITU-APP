@@ -56,6 +56,7 @@
           <th>Nama Tanaman</th>
           <th>Kegiatan</th>
           <th>Tanggal Pemeliharaan</th>
+          <th>Biaya Pemeliharaan</th>
         </tr>
       </thead>
       <tbody>
@@ -65,6 +66,7 @@
             <td>{{ $pemeliharaan->tanaman->nama_tanaman }}</td>
             <td>{{ $pemeliharaan->kegiatan }}</td>
             <td>{{ $pemeliharaan->tanggal }}</td>
+            <td>Rp {{ number_format($pemeliharaan->biaya_pemeliharaan, 0, ',', '.') }}</td>
           </tr>
         @endforeach
       </tbody>

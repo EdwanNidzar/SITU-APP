@@ -20,6 +20,10 @@
           <p class="text-sm text-gray-500">Tanggal</p>
           <p class="text-lg font-medium text-gray-900">{{ $pemeliharaan->tanggal }}</p>
         </div>
+        <div class="p-4 bg-white-100 rounded-lg">
+          <p class="text-sm text-gray-500">Biaya Pemeliharaan</p>
+          <p class="text-lg font-medium text-gray-900">Rp {{ number_format($pemeliharaan->biaya_pemeliharaan, 0, ',', '.') }}</p>
+        </div>
       </div>
 
       <div class="mt-6 flex justify-end gap-2">
