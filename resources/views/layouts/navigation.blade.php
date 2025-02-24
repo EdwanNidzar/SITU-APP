@@ -17,6 +17,7 @@
                 </x-nav-link>
             </li>
 
+            @if (auth()->user()->hasRole('admin') || auth()->user()->hasRole('pimpinan'))
             <li class="relative px-6 py-3">
                 <x-nav-link href="{{ route('bagian.index') }}" :active="request()->routeIs('bagian.*')">
                     <x-slot name="icon">
@@ -53,7 +54,9 @@
                     {{ __('Pegawai') }}
                 </x-nav-link>
             </li>
+            @endif
 
+            @if (auth()->user()->hasRole('admin') || auth()->user()->hasRole('pimpinan') || auth()->user()->hasRole('user'))
             <li class="relative px-6 py-3">
                 <x-nav-link href="{{ route('pelatihan.index') }}" :active="request()->routeIs('pelatihan.*')">
                     <x-slot name="icon">
@@ -65,7 +68,9 @@
                     {{ __('Pelatihan') }}
                 </x-nav-link>
             </li>
+            @endif
 
+            @if (auth()->user()->hasRole('admin') || auth()->user()->hasRole('pimpinan'))
             <li class="relative px-6 py-3">
                 <x-nav-link href="{{ route('lahan.index') }}" :active="request()->routeIs('lahan.*')">
                     <x-slot name="icon">
@@ -77,7 +82,9 @@
                     {{ __('Lahan') }}
                 </x-nav-link>
             </li>
+            @endif
 
+            @if (auth()->user()->hasRole('admin') || auth()->user()->hasRole('pimpinan') || auth()->user()->hasRole('user'))
             <li class="relative px-6 py-3">
                 <x-nav-link href="{{ route('tanaman.index') }}" :active="request()->routeIs('tanaman.*')">
                     <x-slot name="icon">
@@ -113,7 +120,9 @@
                     {{ __('Panen') }}
                 </x-nav-link>
             </li>
+            @endif
 
+            @if (auth()->user()->hasRole('admin'))
             <li class="relative px-6 py-3">
                 <x-nav-link href="{{ route('users.index') }}" :active="request()->routeIs('users.index')">
                     <x-slot name="icon">
@@ -126,7 +135,9 @@
                     {{ __('Users') }}
                 </x-nav-link>
             </li>
+            @endif
 
+            @if (auth()->user()->hasRole('admin') || auth()->user()->hasRole('pimpinan'))
             <li class="relative px-6 py-3">
                 <button class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                         @click="toggleMultiLevelMenu" aria-haspopup="true">
@@ -176,6 +187,7 @@
                     </ul>
                 </template>
             </li>
+            @endif
         </ul>
     </div>
 </aside>

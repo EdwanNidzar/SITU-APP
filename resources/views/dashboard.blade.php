@@ -6,6 +6,7 @@
   </x-slot>
 
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+    @if (auth()->user()->hasRole('admin') || auth()->user()->hasRole('pimpinan'))
     <div class="p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
       <h2 class="text-xl font-bold text-gray-700 mb-4">{{ __('Bagian') }}</h2>
       <a href="{{ route('bagian.index') }}"
@@ -27,6 +28,7 @@
       <a href="{{ route('reportPegawai') }}"
         class="text-blue-500 hover:text-blue-700 transition-colors duration-300">{{ __('Report Pegawai') }}</a>
     </div>
+    @endif
     <div class="p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
       <h2 class="text-xl font-bold text-gray-700 mb-4">{{ __('Pelatihan') }}</h2>
       <a href="{{ route('pelatihan.index') }}"
@@ -34,6 +36,7 @@
       <a href="{{ route('reportPelatihan') }}"
         class="text-blue-500 hover:text-blue-700 transition-colors duration-300">{{ __('Report Pelatihan') }}</a>
     </div>
+    @if (auth()->user()->hasRole('admin') || auth()->user()->hasRole('pimpinan'))
     <div class="p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
       <h2 class="text-xl font-bold text-gray-700 mb-4">{{ __('Lahan') }}</h2>
       <a href="{{ route('lahan.index') }}"
@@ -41,6 +44,7 @@
       <a href="{{ route('reportLahan') }}"
         class="text-blue-500 hover:text-blue-700 transition-colors duration-300">{{ __('Report Lahan') }}</a>
     </div>
+    @endif
     <div class="p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
       <h2 class="text-xl font-bold text-gray-700 mb-4">{{ __('Tanaman') }}</h2>
       <a href="{{ route('tanaman.index') }}"

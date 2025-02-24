@@ -30,7 +30,13 @@
           <tbody class="bg-white divide-y">
             @foreach ($pelatihans as $pelatihan)
               <tr class="text-gray-700">
-                <td class="px-4 py-3 text-sm">{{ $pelatihan->pegawai->nip }} | {{ $pelatihan->pegawai->nama }}</td>
+                <td class="px-4 py-3 text-sm">
+                  @if ($pelatihan->pegawai)
+                    {{ $pelatihan->pegawai->nip }} | {{ $pelatihan->pegawai->nama }}
+                  @else
+                    Tidak ada data
+                  @endif
+                </td>
                 <td class="px-4 py-3 text-sm">{{ $pelatihan->nama_pelatihan }}</td>
                 <td class="px-4 py-3 text-sm">{{ $pelatihan->tanggal_pelatihan }}</td>
                 <td class="px-4 py-3 text-sm">{{ $pelatihan->penyelenggara }}</td>
