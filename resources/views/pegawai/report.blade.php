@@ -54,7 +54,7 @@
 
 <body>
   <div class="container">
-    <img src="{{ public_path('svg/kop.svg') }}" alt="Kop Surat" style="width: 100%;">
+    <img src="{{ public_path('svg/kop-2.svg') }}" alt="Kop Surat" style="width: 100%;">
     <h2>Laporan Pegawai</h2>
     <table>
       <thead>
@@ -83,6 +83,13 @@
         @endforeach
       </tbody>
     </table>
+
+    <div style="margin-top: 20px; text-align: right;">
+      <p>Banjarmasin, {{ date('d F Y') }}</p>
+      <p>Mengetahui&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+      <p style="margin-top: 70px;">(_______________________)</p>
+    </div>
+    
   </div>
 </body>
 
